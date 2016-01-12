@@ -152,7 +152,8 @@ PRODUCT_PACKAGES += \
     CyanogenSetupWizard \
     CMSettingsProvider \
     ExactCalculator \
-    CameraNext
+    CameraNext \
+    OmniSwitch
 
 # CM Platform Library
 PRODUCT_PACKAGES += \
