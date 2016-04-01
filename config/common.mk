@@ -163,7 +163,9 @@ PRODUCT_PACKAGES += \
     CMSettingsProvider \
     ExactCalculator \
     CameraNext \
-    OmniSwitch
+    OmniSwitch \
+    LiveLockScreenService \
+    WeatherProvider
 
 # Exchange support
 PRODUCT_PACKAGES += \
