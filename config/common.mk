@@ -165,7 +165,8 @@ PRODUCT_PACKAGES += \
     CameraNext \
     OmniSwitch \
     LiveLockScreenService \
-    WeatherProvider
+    WeatherProvider \
+    DataUsageProvider
 
 # Exchange support
 PRODUCT_PACKAGES += \
