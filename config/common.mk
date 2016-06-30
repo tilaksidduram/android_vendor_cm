@@ -160,7 +160,6 @@ PRODUCT_PACKAGES += \
     CyanogenSetupWizard \
     CMSettingsProvider \
     ExactCalculator \
-    CameraNext \
     OmniSwitch \
     LiveLockScreenService \
     WeatherProvider \
