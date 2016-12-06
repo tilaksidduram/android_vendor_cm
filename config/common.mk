@@ -230,6 +230,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     masquerade
 
+# OMS Verified
+PRODUCT_PROPERTY_OVERRIDES := \
+    ro.substratum.verified=true
+
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
