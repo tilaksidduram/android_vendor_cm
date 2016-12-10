@@ -156,7 +156,6 @@ PRODUCT_PACKAGES += \
     AudioFX \
     CMFileManager \
     CMSettingsProvider \
-    CMUpdater \
     CMWallpapers \
     CyanogenSetupWizard \
     Eleven \
@@ -280,45 +279,47 @@ endif
 
 # Set CM_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
 
-ifndef CM_BUILDTYPE
-    ifdef RELEASE_TYPE
-        # Starting with "CM_" is optional
-        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^CM_||g')
-        CM_BUILDTYPE := $(RELEASE_TYPE)
-    endif
-endif
+#ifndef CM_BUILDTYPE
+#    ifdef RELEASE_TYPE
+#        # Starting with "CM_" is optional
+#        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^CM_||g')
+#        CM_BUILDTYPE := $(RELEASE_TYPE)
+#    endif
+#endif
 
 # Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(CM_BUILDTYPE)),)
-    CM_BUILDTYPE :=
-endif
+#ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(CM_BUILDTYPE)),)
+#    CM_BUILDTYPE :=
+#endif
 
-ifdef CM_BUILDTYPE
-    ifneq ($(CM_BUILDTYPE), SNAPSHOT)
-        ifdef CM_EXTRAVERSION
-            # Force build type to EXPERIMENTAL
-            CM_BUILDTYPE := EXPERIMENTAL
-            # Remove leading dash from CM_EXTRAVERSION
-            CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
-            # Add leading dash to CM_EXTRAVERSION
-            CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
-        endif
-    else
-        ifndef CM_EXTRAVERSION
-            # Force build type to EXPERIMENTAL, SNAPSHOT mandates a tag
-            CM_BUILDTYPE := EXPERIMENTAL
-        else
-            # Remove leading dash from CM_EXTRAVERSION
-            CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
-            # Add leading dash to CM_EXTRAVERSION
-            CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
-        endif
-    endif
-else
-    # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
-    CM_BUILDTYPE := UNOFFICIAL
-    CM_EXTRAVERSION :=
-endif
+#ifdef CM_BUILDTYPE
+#    ifneq ($(CM_BUILDTYPE), SNAPSHOT)
+#        ifdef CM_EXTRAVERSION
+#            # Force build type to EXPERIMENTAL
+#            CM_BUILDTYPE := EXPERIMENTAL
+#            # Remove leading dash from CM_EXTRAVERSION
+#            CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
+#            # Add leading dash to CM_EXTRAVERSION
+#            CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
+#        endif
+#    else
+#        ifndef CM_EXTRAVERSION
+#            # Force build type to EXPERIMENTAL, SNAPSHOT mandates a tag
+#            CM_BUILDTYPE := EXPERIMENTAL
+#        else
+#            # Remove leading dash from CM_EXTRAVERSION
+#            CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
+#            # Add leading dash to CM_EXTRAVERSION
+#            CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
+#        endif
+#    endif
+#else
+#    # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
+#    CM_BUILDTYPE := UNOFFICIAL
+#    CM_EXTRAVERSION :=
+#endif
+
+CM_BUILDTYPE := tilak
 
 ifeq ($(CM_BUILDTYPE), UNOFFICIAL)
     ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
