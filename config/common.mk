@@ -130,7 +130,6 @@ PRODUCT_PACKAGES += \
     AudioFX \
     CMFileManager \
     CMSettingsProvider \
-    CMWallpapers \
     CyanogenSetupWizard \
     Eleven \
     ExactCalculator \
