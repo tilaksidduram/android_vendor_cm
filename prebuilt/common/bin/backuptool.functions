@@ -8,7 +8,7 @@ export S=/system
 export V=14.1
 
 backup_file() {
-  if [ -e "$1" ]; then
+  if [ -e "$1" -o -L "$1" ]; then
     local F=`basename "$1"`
     local D=`dirname "$1"`
     # dont backup any apps that have odex files, they are useless
@@ -16,7 +16,7 @@ backup_file() {
       echo "Skipping odexed apk $1";
     else
       mkdir -p "$C/$D"
-      cp -p $1 "$C/$D/$F"
+      cp -dp $1 "$C/$D/$F"
     fi
   fi
 }
@@ -24,11 +24,11 @@ backup_file() {
 restore_file() {
   local FILE=`basename "$1"`
   local DIR=`dirname "$1"`
-  if [ -e "$C/$DIR/$FILE" ]; then
+  if [ -e "$C/$DIR/$FILE" -o -L "$C/$DIR/$FILE" ]; then
     if [ ! -d "$DIR" ]; then
       mkdir -p "$DIR";
     fi
-    cp -p "$C/$DIR/$FILE" "$1";
+    cp -dp "$C/$DIR/$FILE" "$1";
     if [ -n "$2" ]; then
       echo "Deleting obsolete file $2"
       rm "$2";
