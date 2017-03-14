@@ -216,10 +216,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.storage_manager.enabled=true
 
-# OMS MASQUERADE
-PRODUCT_PACKAGES += \
-    masquerade
-
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
