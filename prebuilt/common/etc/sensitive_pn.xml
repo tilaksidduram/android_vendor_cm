@@ -28,6 +28,7 @@
     </sensitivePN>
     <!--France-->
     <sensitivePN network="208">
+        <item>119</item>
         <item>3919</item>
     </sensitivePN>
     <!--Spain-->
@@ -56,6 +57,8 @@
     </sensitivePN>
     <!--GB-->
     <sensitivePN network="234">
+        <item>116123</item>
+        <item>08001111</item>
         <item>08082000247</item>
     </sensitivePN>
     <!--Norway-->
@@ -76,6 +79,7 @@
     <!--Portugal-->
     <sensitivePN network="268">
         <item>800202148</item>
+        <item>116006</item>
     </sensitivePN>
     <!--Turkey-->
     <sensitivePN network="286">
@@ -199,5 +203,6 @@
     <sensitivePN network="724">
         <item>100</item>
         <item>180</item>
+        <item>181</item>
     </sensitivePN>
 </sensitivePNS>
